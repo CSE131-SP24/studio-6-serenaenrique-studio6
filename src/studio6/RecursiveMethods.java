@@ -1,5 +1,7 @@
 package studio6;
 
+import java.awt.Color;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class RecursiveMethods {
@@ -14,8 +16,14 @@ public class RecursiveMethods {
 	public static double geometricSum(int n) {
 		
 			// FIXME compute the geometric sum for the first n terms recursively
+		if(n==0)
+		{
 			return 0;
-		
+		}
+		else
+		{
+			return geometricSum(n-1)+1/Math.pow(2,n);
+		}
 	}
 
 	/**
@@ -29,6 +37,7 @@ public class RecursiveMethods {
 	public static int gcd(int p, int q) {
 		
 			// FIXME compute the gcd of p and q using recursion
+		
 			return 0;
 		
 	}
@@ -60,7 +69,19 @@ public class RecursiveMethods {
 	public static void circlesUponCircles(double xCenter, double yCenter, double radius,
 			double radiusMinimumDrawingThreshold) {
 		
-		// FIXME
-	}
-
+			if(radius<radiusMinimumDrawingThreshold)
+			{}
+			else
+			{
+			StdDraw.circle(xCenter,yCenter,radius);
+			circlesUponCircles(xCenter-radius,yCenter,radius/3.0,radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter+radius,yCenter,radius/3.0,radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter,yCenter-radius,radius/3.0,radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter,yCenter+radius,radius/3.0,radiusMinimumDrawingThreshold);
+			}
+		}
 }
+
+	
+
+
